@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <h1>Welcome to the music file  <h4><li><a href="pres1.html">Return</a></li></h4>
+</h1>
+     <button class="center-btn" onclick="toggleGifs()">Click when u hear music</button>
+
+<div id="gifBox" style="display:none; text-align:center; margin-top:20px;">
+    <img src="images/goku-dancing.gif" width="200">
+    <img src="images/goku-dancing.gif" width="200">
+</div>
+</header>
+<head>
+<style>
+body {
+    background-image: url("images/Screenshot 2026-06-16 132847.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 165vh;
+    margin: 0;
+}
+
+.center-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+#gifBox {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+
+          header {
+            padding: 30px; 
+            margin: 0;
+           }
+
+           h1 {
+            text-align: center;
+           }
+
+           h4 {
+            text-align: center;
+           }
+
+ .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;   /* controls how far apart they are */
+    margin: 20px auto; /* centers the whole group */
+}
+
+.button-container button {
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    color: rgb(4, 255, 0);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+} 
+
+   li a:hover {
+color: white;
+ background-color: black;
+ border-radius: 5px;
+           }
+           li a {
+            text-decoration: none;
+            color: black;
+            padding: 0px;
+            display: inline-block;
+            transition: 0.3s;
+           
+           }
+
+           #songList {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#songList p {
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px auto;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#songList p:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.05);
+}
+
+#songList a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+#songList a:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<audio id="bgMusic" loop></audio>
+
+<div id="songList">
+    <p onclick="playSong('song1')">Song 1</p>
+    <p onclick="playSong('song2')">Song 2</p>
+    <p onclick="playSong('song3')">Song 3</p>
+    <p onclick="playSong('song4')">Song 4</p>
+    <p onclick="playSong('song5')">Song 5</p>
+    <p onclick="playSong('song6')">Song 6</p>
+    <p onclick="playSong('song7')">Song 7</p>
+    <p onclick="playSong('song8')">Song 8</p>
+    <a href="https://open.spotify.com/playlist/7kf6I3mEswyGtukqmw6SbI?si=e70f8c92f1bb40cb" target="_blank">
+If u wanna hear more </a>
+</div>
+
+<script>
+let musicStarted = false;
+
+function startMusic() {
+    if (!musicStarted) {
+        const audio = document.getElementById("bgMusic");
+        audio.play().catch(err => console.log("Blocked:", err));
+        musicStarted = true;
+    }
+}
+
+// start music on ANY click
+document.addEventListener("click", startMusic);
+
+function playSong(song) {
+    const audio = document.getElementById("bgMusic");
+
+    if (song === "song1") {
+        audio.src = "music2/Leon Thomas - VIBES DON'T LIE (Audio) - (64 Kbps).mp3";
+    }
+
+    if (song === "song2") {
+        audio.src = "music1/Daniel Caesar - Get You ft. Kali Uchis - (64 Kbps).mp3";
+    }
+
+    if (song === "song3") {
+        audio.src = "music1/Jhené Aiko - stranger (Audio) - (original Kbps).mp3";
+    }
+
+        if (song === "song4") {
+        audio.src = "music3/Lucky Daye - Used To Be (Audio) - (original Kbps).mp3";
+    }
+
+        if (song === "song5") {
+        audio.src = "music3/Mario - Moan (Official Visualizer).mp3";
+    }
+
+        if (song === "song6") {
+        audio.src = "music4/SZA - 2AM (Official Audio).mp3";
+    }
+
+            if (song === "song7") {
+        audio.src = "music4/Poison.mp3";
+    }
+
+            if (song === "song8") {
+        audio.src = "music4/Violet Grohl - Pool Of My Dreams (Official Visualizer).mp3";
+    }
+
+
+    audio.load();
+    audio.play();
+    musicStarted = true;
+}
+</script>
+
+
+<script>
+function toggleGifs() {
+    const box = document.getElementById("gifBox");
+
+    if (box.style.display === "none" || box.style.display === "") {
+        box.style.display = "block";
+    } else {
+        box.style.display = "none";
+    }
+}
+</script>
+
+<body>
+</body>
+</html>

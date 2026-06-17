@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html> 
+    
+
+<body>
+
+<div class="container">
+
+    <img id="gallery" src="images/caylei.jpeg">
+
+    <br>
+
+    <button id="nextButton" onclick="nextImage()">➡</button>
+
+    <br><br>
+
+    <a href="pres1.html">Return</a>
+
+</div>
+<script>
+const images = [
+    "images/caylei.jpeg",
+    "images/bv.jpeg",
+    "images/ch.jpeg",
+    "images/WhatsApp Image 2026-06-11 at 12.57.28 PM.jpeg",
+    "images/WhatsApp Image 2026-06-11 at 12.58.43 PM.jpeg",
+    "images/WhatsApp Image 2026-06-11 at 12.58.08 PM.jpeg",
+    "images/WhatsApp Image 2026-06-13 at 12.52.43 PM.jpeg",
+    "images/WhatsApp Image 2026-06-13 at 12.52.41 PM.jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.50.00 PM.jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.25 PM (2).jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.24 PM (2).jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.25 PM.jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.25 PM (3).jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.25 PM (4).jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.26 PM.jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.34 PM.jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.26 PM (1).jpeg",
+    "images/WhatsApp Image 2026-06-16 at 12.55.24 PM (1).jpeg",
+];
+
+let current = 0;
+
+function nextImage() {
+    current++;
+
+    if (current >= images.length) {
+        current = 0;
+    }
+
+    document.getElementById("gallery").src = images[current];
+}
+</script>
+
+<style>
+    
+body {
+    background-image: url("images/95.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+
+   li a:hover {
+color: white;
+ background-color: black;
+ border-radius: 5px;
+           }
+           li a {
+            text-decoration: none;
+            color: black;
+            padding: 0px;
+            display: inline-block;
+            transition: 0.3s;
+           
+           }
+
+                      li {
+            list-style: none;
+    
+           }
+
+#nextButton {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+}
+
+#gallery {
+    width: 400px;
+    height: 400px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#gallery:hover {
+    transform: scale(1.2);
+}
+</style>
+
+<audio id="bgMusic" loop>
+    <source src="music/Animal Crossing New Horizons - Welcome Horizons (Title Theme).mp3" type="audio/mpeg">
+</audio>
+<script>
+let musicStarted = false;
+
+function startMusic() {
+    if (!musicStarted) {
+        document.getElementById("bgMusic").play();
+        musicStarted = true;
+    }
+}
+
+// start music on ANY click anywhere on page
+document.addEventListener("click", startMusic);
+</script>

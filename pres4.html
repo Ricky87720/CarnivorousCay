@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+    background:#c8f7c5;
+    font-family:Arial, sans-serif;
+}
+
+#gameBtn{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    padding:15px 30px;
+    font-size:24px;
+    font-weight:bold;
+    background:white;
+    color:#2e7d32;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<button id="gameBtn">Click Here ❤️</button>
+
+<script>
+
+let clicks = 0;
+const btn = document.getElementById("gameBtn");
+
+btn.addEventListener("click", () => {
+
+    clicks++;
+
+    if(clicks < 5){
+
+        const maxX = window.innerWidth - btn.offsetWidth;
+        const maxY = window.innerHeight - btn.offsetHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+        btn.style.transform = "none";
+
+
+} else {
+
+    btn.style.display = "none";
+
+    confettiExplosion();
+
+    const music = document.getElementById("finalMusic");
+    music.currentTime = 0;
+    music.play();
+
+    const text = document.createElement("h1");
+
+    text.innerHTML = "For Cayleigh ❤️";
+
+    text.style.position = "absolute";
+    text.style.top = "50%";
+    text.style.left = "50%";
+    text.style.transform = "translate(-50%, -50%)";
+    text.style.fontSize = "60px";
+    text.style.color = "white";
+    text.style.textShadow = "0 0 15px black";
+
+    document.body.appendChild(text);
+
+    const returnLink = document.createElement("a");
+
+    returnLink.href = "index.html";
+    returnLink.innerHTML = "← Return(I tolerate u)";
+
+    returnLink.style.position = "absolute";
+    returnLink.style.top = "68%";
+    returnLink.style.left = "50%";
+    returnLink.style.transform = "translateX(-50%)";
+
+    returnLink.style.fontSize = "16px";
+    returnLink.style.color = "white";
+    returnLink.style.textDecoration = "none";
+
+    returnLink.style.padding = "6px 12px";
+    returnLink.style.background = "rgba(255,255,255,0.15)";
+    returnLink.style.borderRadius = "8px";
+    returnLink.style.backdropFilter = "blur(5px)";
+    returnLink.style.boxShadow = "0 0 8px rgba(0,0,0,0.25)";
+
+    document.body.appendChild(returnLink);
+}
+});
+
+function confettiExplosion() {
+
+    const flowers = [
+        "images/kjk.jpeg",
+        "images/kk.jpeg",
+        "images/download (1).jpeg",
+        "images/download (2).jpeg",
+
+    ];
+
+    for(let i = 0; i < 80; i++) {
+
+        const flower = document.createElement("img");
+
+        flower.src = flowers[Math.floor(Math.random() * flowers.length)];
+
+        flower.style.position = "absolute";
+        flower.style.left = Math.random() * window.innerWidth + "px";
+        flower.style.top = "-100px";
+
+        const size = Math.random() * 40 + 40;
+
+        flower.style.width = size + "px";
+        flower.style.pointerEvents = "none";
+
+        document.body.appendChild(flower);
+
+        const duration = Math.random() * 3000 + 4000;
+        const drift = Math.random() * 300 - 150;
+
+        flower.animate([
+            {
+                transform: "translateY(0px) rotate(0deg)"
+            },
+            {
+                transform: `translate(${drift}px, ${window.innerHeight + 200}px) rotate(720deg)`
+            }
+        ], {
+            duration: duration,
+            easing: "linear"
+        });
+
+        setTimeout(() => {
+            flower.remove();
+        }, duration);
+    }
+}
+
+const music = document.getElementById("finalMusic");
+music.currentTime = 0;
+music.play();
+
+</script>
+
+<audio id="finalMusic">
+    <source src="music/George Michael - Careless Whisper (Official Video).mp3" type="audio/mpeg">
+</audio>
+
+
+
+</body>
+</html>
